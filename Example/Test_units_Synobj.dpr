@@ -6,7 +6,7 @@ program Test_units_Synobj;
 uses
   Vcl.Forms,
   unit1 in 'unit1.pas' {frmTest},
-  extcriticalsection_unit in '..\extcriticalsection_unit.pas';
+  synobj_unit in '..\synobj_unit.pas';
 
 {$R *.res}
 

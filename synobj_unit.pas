@@ -18,9 +18,9 @@
 
 }
 
-{$i ..\share_settings.inc}
+{$I ..\share_settings.inc}
 
-unit extcriticalsection_unit;
+unit synobj_unit;
 
 interface
 
@@ -41,10 +41,10 @@ type TExtCriticalSection = class(TObject)
    faLog:array[0..99] of String;
    fonLog:EventonLog;
 
-   procedure _dolog(sLogAdd:String);
+   procedure _dolog(const sLogAdd:String);
    function _getlog:string;
   public
-   constructor Create(sName:String);
+   constructor Create(const sName:String);
    destructor Destroy; override;
 
    function TryEnter(DebugID:Cardinal=0):Boolean;
@@ -65,7 +65,7 @@ implementation
 
 // ==========================================================================
 
-constructor TExtCriticalSection.Create(sName:String);
+constructor TExtCriticalSection.Create(const sName:String);
 var i:Integer;
 begin
  inherited Create;
@@ -150,7 +150,7 @@ end;
 
 // ==========================================================================
 
-procedure TExtCriticalSection._dolog(sLogAdd:String);
+procedure TExtCriticalSection._dolog(const sLogAdd:String);
 begin
  faLog[fiLog]:= formatdatetime('hh:nn:ss', time) + '> ' + sLogAdd;
  inc(fiLog);
